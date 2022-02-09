@@ -27,3 +27,5 @@ Suppose that in period t=5, a permanent negative aggregate demand shock takes pl
 Present 3 graphs that show the evolution of the inflation rate, the interest rate and output over the 20 periods of your simulation. Explain the economic mechanisms behind the change in the evolution of the 3 variables caused by the demand shock. 
 
 *note to self: R code accounts for 750 words + 30% of final mark
+
+This is a line from RStudio.
