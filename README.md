@@ -4,9 +4,9 @@ Macroeconomic Analysis AS2
 
 New Consensus 3-equation model
 
-IS Curve 
-Phillips curve 
-Interest rate rule
+IS Curve;
+Phillips curve;
+Interest rate rule;
 
 1) Stimulate the model in R for 20 time periods using specific values outlined
 2) Present a negative aggregate demand shock, at period t=5, with A declined from 1.1 to 1.09
