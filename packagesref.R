@@ -1,7 +1,4 @@
 
-install.packages("pacman")
+library("greekLetters")
 
-require(pacman)
-
-library(datasets)
 
