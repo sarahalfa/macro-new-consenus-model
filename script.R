@@ -1,24 +1,52 @@
 
+
+#Necessary libraries 
+library(rmarkdown)
+library(r2symbols)
+library(tidyquant)
+
 #Data
-#Create + define variables 
+#Created and defined the variables for the 3 equations 
+
+#A, alpha, beta, y are parameters
+
 A <- 1.1
-a <- 1
-B <- 1
+
+#Note, alpha and beta have both been fixed at 0.99 thus alpha = beta = 0.99 or 1
+sym("alpha")
+sym("beta")
+
 y <- 2
-pi*T = 0.02
-pi(t) <- 0.02
-y(e) <- 1
-y(t) <- y(e)
+
+pi^T==0.02
+
+pi <- "inflation rate"
+pi^T <- "inflation target"
+
+r <- "real interest rate"
+
+ye <- "equilibrium output"
+
+ye <- 1
+
+#for below, figure out how to write the following values efficiently 
+
+y(t=1)
+y(t=1) <- ye
+
 y(t=1) <- pi(t)
+
 pi(t=1) <- pi(T)
+
 r(t=1) <- A-y(e)/y
+
 r <- 0.5
-#Create variables for time series to have 20 time periods (defining t so it can be anything from 1-20)
-#figure out how to fix this so that t can hold from numbers 1-20
-t <- a(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
+
+#Defined t to hold 20 time periods, from 1-20
+t <- "time"
+t <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
 
 #3 curves
-
 #IS curve
 y(t)=A-yr(t)-1
 
@@ -30,5 +58,14 @@ r(t)=A-y(e)/y+aB(pi(t)-pi(T))/y(1+(a^2)*B)
 
 #Will need to implement perhaps an if else statement?? for if t=5, then A=1.09
 
-#Plot 3 graphs; inflation rate; interest rate; output over the 20 periods of the simulation (all due to aggregate demand shock)
+
+if (t <- 5) {
+  print("Negative aggregate demand shock has occurred")
+} else {
+  print("N/A")
+}
+
+
+#Plot 3 graphs; inflation rate; interest rate; output over the 20 periods 
+#of the simulation (all due to aggregate demand shock)
 
