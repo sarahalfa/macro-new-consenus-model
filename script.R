@@ -5,6 +5,7 @@ A <- 1.1
 a <- 1
 B <- 1
 y <- 2
+pi*T = 0.02
 pi(t) <- 0.02
 y(e) <- 1
 y(t) <- y(e)
@@ -14,7 +15,7 @@ r(t=1) <- A-y(e)/y
 r <- 0.5
 #Create variables for time series to have 20 time periods (defining t so it can be anything from 1-20)
 #figure out how to fix this so that t can hold from numbers 1-20
-t = a(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20)
+t <- a(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
 
 #3 curves
 
