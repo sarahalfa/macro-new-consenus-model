@@ -73,6 +73,7 @@ assign (matrixname,(round(cbind(z,y,w), digits=3)))
 
 #2 plots created for endogenous variables
 
-plot(z, type="l", xlab="Period", ylab="Z variable")
 plot(y, type="l", xlab="Period", ylab="Y variable")
-plot(w, type="l", xlab="Period", ylab="W variable")
+plot(pi, type="l", xlab="Period", ylab="Pi variable")
+plot(r, type="l", xlab="Period", ylab="R variable")
+
