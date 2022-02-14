@@ -6,7 +6,7 @@ library(r2symbols)
 library(tidyquant)
 
 #Data
-#Created and defined the variables for the 3 equations 
+#Created and defined the parameter variables for the 3 equations 
 
 #A, alpha, beta, y are parameters
 
@@ -69,8 +69,9 @@ if (t <- 5) {
 
 #Table created to include the 2 vectors for endogenous variables
 matrixname<-past("Inflation Rate")
-assign (matrixname,(round(cbind(z,y), digits=2)))
+assign (matrixname,(round(cbind(z,y,w), digits=3)))
 
 #2 plots created for endogenous variables
 plot(z, type="I", xlab="Period", ylab="Z variable")
 plot(y, type="I", xlab="Period", ylab="Y variable")
+plot(w, type="I", xlab="Period", ylab="W variable")
