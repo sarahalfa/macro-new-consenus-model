@@ -29,18 +29,11 @@ ye <- "equilibrium output"
 
 ye <- 1
 
-#for below, figure out how to write the following values efficiently 
-
-y(t=1)
-y(t=1) <- ye
-
-y(t=1) <- pi(t)
-
-pi(t=1) <- pi(T)
-
-r(t=1) <- A-y(e)/y
-
+#Initial values
+y[1]<-ye
+pi[1]<-pi^T
 r <- 0.5
+r[1]<- (A-ye)/y
 
 #Defined t to hold 20 time periods, from 1-20
 t <- "time"
