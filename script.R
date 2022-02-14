@@ -58,13 +58,11 @@ r(t)=A-y(e)/y+aB(pi(t)-pi(T))/y(1+(a^2)*B)
 
 #Will need to implement perhaps an if else statement?? for if t=5, then A=1.09
 
-
 if (t <- 5) {
-  print("Negative aggregate demand shock has occurred")
+  A <- 1.09
 } else {
-  print("N/A")
+  A <- 1.10
 }
-
 
 #Plot 3 graphs; inflation rate; interest rate; output over the 20 periods 
 #of the simulation (all due to aggregate demand shock)
