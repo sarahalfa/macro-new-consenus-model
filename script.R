@@ -67,3 +67,10 @@ if (t <- 5) {
 #Plot 3 graphs; inflation rate; interest rate; output over the 20 periods 
 #of the simulation (all due to aggregate demand shock)
 
+#Table created to include the 2 vectors for endogenous variables
+matrixname<-past("Inflation Rate")
+assign (matrixname,(round(cbind(z,y), digits=2)))
+
+#2 plots created for endogenous variables
+plot(z, type="I", xlab="Period", ylab="Z variable")
+plot(y, type="I", xlab="Period", ylab="Y variable")
