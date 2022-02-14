@@ -51,6 +51,10 @@ r(t)=A-y(e)/y+aB(pi(t)-pi(T))/y(1+(a^2)*B)
 
 #Will need to implement perhaps an if else statement?? for if t=5, then A=1.09
 
+if (t<-c){
+  A <- 1.10
+}
+
 if (t <- 5) {
   A <- 1.09
 } else {
