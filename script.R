@@ -15,17 +15,18 @@ alpha <- 1
 beta <- 1
 gamma <- 2
 
-
-
-
-pi^T==0.02
+#Additional/initial values defined
 pi <- "inflation rate"
-pi^T <- "inflation target"
+pi[T] <- "inflation target"
+pi[T] <- 0.02
 r <- "real interest rate"
 ye <- "equilibrium output"
 ye <- 1
 
 #Vectors
+y<-vector(length=20)
+pi<-vector(length=20)
+r<-vector(length=20)
 
 #Initial values
 y[1]<-ye
@@ -43,8 +44,6 @@ t <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
 #IS curve (shows the demand-side of the economy)
 
 y^T==A-y^r^t-1
-
-
 
 #Phillips curve (shows supply-side of the economy)
 
