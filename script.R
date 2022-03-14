@@ -1,4 +1,5 @@
 
+
 #NEW CONSENSUS 3-EQUATION MODEL
 
 #Libraries (may delete if unnecessary)
@@ -6,7 +7,6 @@
 library(rmarkdown)
 
 #Data
-
 #Parameter values of A, alpha, beta and gamma 
 A <- 1.1
 alpha <- 1
@@ -16,16 +16,13 @@ gamma <- 2
 #pi <- "inflation rate"
 # pi^T=0.02 inflation target (uppercase T is thus target)
 pi^T==0.02
-y <- "output"
 ye <- 1
 y[1] <- ye
-pi[1] <- pi^T
+pi[1] <- pi^T #may need to change this to pi[1] <- 0.02 in the long run
 r[1] <- A-ye/gamma
-
 
 #Defined t to hold 20 time periods, from 1-20
 
-t <- "time"
 t <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
 
 #Vectors
@@ -37,17 +34,15 @@ r<-vector(length=20)
 
 #IS curve (shows the demand-side of the economy)
 
-y^T==A-y^r^t-1
-
 y[t]<-A-gamma*r[t-1]
 
 #Phillips curve (shows supply-side of the economy)
 
-pi^t=pi^t-1+sym("alpha")(y^t-y^e)
+pi[t] <- pi[t-1]+alpha*(y[t]-ye)
 
 #Interest rate rule
 
-r^t=(A-ye)/y+sym("alpha")*sym("beta")*(pi^t-pi^T)/y(1+a^2*sym("beta"))
+r[t] <- (A-ye/gamma)+(alpha*beta*(pi[t]-pi^T)/gamma*(1+(alpha^2)*beta))
 
 #Will need to implement perhaps an if else statement?? for if t=5, then A=1.09
 
