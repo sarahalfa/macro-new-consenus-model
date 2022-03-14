@@ -47,6 +47,8 @@ t <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
 
 y^T==A-y^r^t-1
 
+
+
 #Phillips curve (shows supply-side of the economy)
 
 pi^t=pi^t-1+sym("alpha")(y^t-y^e)
@@ -77,7 +79,7 @@ plot(y, type="l", xlab="Period", ylab="Y variable")
 plot(pi, type="l", xlab="Period", ylab="Pi variable")
 plot(r, type="l", xlab="Period", ylab="R variable")
 
-?plot
+test 
 
 #Negative aggregate demand shock
 
