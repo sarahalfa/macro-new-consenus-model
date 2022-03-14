@@ -13,24 +13,18 @@ library(tidyquant)
 #A, alpha, beta, y are parameters
 
 A <- 1.1
-
 #Note, alpha and beta have both been fixed at 0.99 thus alpha = beta = 0.99 or 1
-
 sym("alpha")
 sym("beta")
-
 y <- 2
 pi^T==0.02
 pi <- "inflation rate"
 pi^T <- "inflation target"
-
 r <- "real interest rate"
-
 ye <- "equilibrium output"
 ye <- 1
 
 #Initial values
-
 y[1]<-ye
 pi[1]<-pi^T
 r <- 0.5
@@ -79,7 +73,7 @@ plot(y, type="l", xlab="Period", ylab="Y variable")
 plot(pi, type="l", xlab="Period", ylab="Pi variable")
 plot(r, type="l", xlab="Period", ylab="R variable")
 
-test 
+
 
 #Negative aggregate demand shock
 
@@ -105,6 +99,7 @@ assign (matrixname, (round(cbind(y,pi,r), digits=3)))
 plot(y, type="l", xlab="y (output)", ylab="r (real interest rate)")
 plot(pi^t, type="l", xlab="y (output)", ylab="pi (inflation target)")
 
-#on the IR graph, there are 3 Phillips Curve's * implement those for now
+#on the IR graph, there are 3 Phillips Curve's 
 pi^t==pi^t+a*(y^t-ye)
+
 
