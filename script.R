@@ -43,11 +43,11 @@ t <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
 
 #3 curves
 
-#IS curve
+#IS curve (shows the demand-side of the economy)
 
 y^T==A-y^r^t-1
 
-#Phillips curve
+#Phillips curve (shows supply-side of the economy)
 
 pi^t=pi^t-1+sym("alpha")(y^t-y^e)
 
@@ -69,11 +69,40 @@ if (t <- 5) {
 #Table created to include the 2 vectors for endogenous variables
 
 matrixname<-past("Inflation Rate")
-assign (matrixname,(round(cbind(z,y,w), digits=3)))
+assign (matrixname,(round(cbind(y,pi,r), digits=3)))
 
 #2 plots created for endogenous variables
 
 plot(y, type="l", xlab="Period", ylab="Y variable")
 plot(pi, type="l", xlab="Period", ylab="Pi variable")
 plot(r, type="l", xlab="Period", ylab="R variable")
+
+?plot
+
+#Negative aggregate demand shock
+
+#Change of t=5 graph
+
+#Will need to implement perhaps an if else statement?? for if t=5, then A=1.09
+
+if (t <- 5) {
+  A <- 1.09
+} else {
+  t <- c(1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
+  A <- 1.10
+}
+
+
+#Inflation Rate Graph
+
+#Table for the vectors of endogenous variables
+matrixname<-past("Inflation Rate Graph")
+assign (matrixname, (round(cbind(y,pi,r), digits=3)))
+
+#Plots 
+plot(y, type="l", xlab="y (output)", ylab="r (real interest rate)")
+plot(pi^t, type="l", xlab="y (output)", ylab="pi (inflation target)")
+
+#on the IR graph, there are 3 Phillips Curve's * implement those for now
+pi^t==pi^t+a*(y^t-ye)
 
