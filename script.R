@@ -44,44 +44,39 @@ pi[t] <- pi[t-1]+alpha*(y[t]-ye)
 
 r[t] <- (A-ye/gamma)+(alpha*beta*(pi[t]-pi^T)/gamma*(1+(alpha^2)*beta))
 
-#Will need to implement perhaps an if else statement?? for if t=5, then A=1.09
-
-if (t <- 5) {
-  A <- 1.09
-} else {
-  t <- c(1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
-  A <- 1.10
-}
-
 #Plot 3 graphs; inflation rate; interest rate; output over the 20 periods 
 
-#Table created to include the 2 vectors for endogenous variables
+#Table created to include the 2 vectors for endogenous variables 
+#i dont think this isn't needed for AS2 - ask prof
 
 matrixname<-past("Inflation Rate")
 assign (matrixname,(round(cbind(y,pi,r), digits=3)))
 
-#2 plots created for endogenous variables
+#3 plots created for endogenous variables y, pi and r for each curve 
 
-plot(y, type="l", xlab="Period", ylab="Y variable")
-plot(pi, type="l", xlab="Period", ylab="Pi variable")
-plot(r, type="l", xlab="Period", ylab="R variable")
+plot(y, type="l", xlab="Period", ylab="IS Curve")
+plot(pi, type="l", xlab="Period", ylab="Phillips curve")
+plot(r, type="l", xlab="Period", ylab="Interest rate rule")
 
 
 
 #Negative aggregate demand shock
-
 #Change of t=5 graph
+#Implement a for loop to show that when if t=5, A declines to A=1.09
 
-#Will need to implement perhaps an if else statement?? for if t=5, then A=1.09
-
-if (t <- 5) {
-  A <- 1.09
-} else {
-  t <- c(1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
-  A <- 1.10
+for (t in 2:20){
+  if (t <- 5) {A <- 1.09} else {A <- 1.1}
+  y[t]<-A-gamma*r[t-1]
+  pi[t] <- pi[t-1]+alpha*(y[t]-ye)
+  r[t] <- (A-ye/gamma)+(alpha*beta*(pi[t]-pi^T)/gamma*(1+(alpha^2)*beta))
 }
 
 
+
+
+
+
+#below may be all unnecessary
 #Inflation Rate Graph
 
 #Table for the vectors of endogenous variables
