@@ -4,8 +4,6 @@
 #Libraries (may delete if unnecessary)
 
 library(rmarkdown)
-library(r2symbols)
-library(tidyquant)
 
 #Data
 
@@ -14,36 +12,34 @@ A <- 1.1
 alpha <- 1
 beta <- 1
 gamma <- 2
-
-#Additional/initial values defined
-pi <- "inflation rate"
-pi[T] <- "inflation target"
-pi[T] <- 0.02
-r <- "real interest rate"
-ye <- "equilibrium output"
+#Initial values defined
+#pi <- "inflation rate"
+# pi^T=0.02 inflation target (uppercase T is thus target)
+pi^T==0.02
+y <- "output"
 ye <- 1
+y[1] <- ye
+pi[1] <- pi^T
+r[1] <- A-ye/gamma
 
-#Vectors
-y<-vector(length=20)
-pi<-vector(length=20)
-r<-vector(length=20)
-
-#Initial values
-y[1]<-ye
-pi[1]<-pi^T
-r <- 0.5
-r[1]<- (A-ye)/y
 
 #Defined t to hold 20 time periods, from 1-20
 
 t <- "time"
 t <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
 
+#Vectors
+y<-vector(length=20)
+pi<-vector(length=20)
+r<-vector(length=20)
+
 #3 curves
 
 #IS curve (shows the demand-side of the economy)
 
 y^T==A-y^r^t-1
+
+y[t]<-A-gamma*r[t-1]
 
 #Phillips curve (shows supply-side of the economy)
 
