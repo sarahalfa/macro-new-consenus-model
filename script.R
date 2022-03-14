@@ -1,6 +1,7 @@
 
+#NEW CONSENSUS 3-EQUATION MODEL
 
-#Necessary libraries 
+#Libraries (may delete if unnecessary)
 
 library(rmarkdown)
 library(r2symbols)
@@ -8,21 +9,23 @@ library(tidyquant)
 
 #Data
 
-#Created and defined the parameter variables for the 3 equations 
-
-#A, alpha, beta, y are parameters
-
+#Parameter values of A, alpha, beta and gamma 
 A <- 1.1
-#Note, alpha and beta have both been fixed at 0.99 thus alpha = beta = 0.99 or 1
-sym("alpha")
-sym("beta")
-y <- 2
+alpha <- 1
+beta <- 1
+gamma <- 2
+
+
+
+
 pi^T==0.02
 pi <- "inflation rate"
 pi^T <- "inflation target"
 r <- "real interest rate"
 ye <- "equilibrium output"
 ye <- 1
+
+#Vectors
 
 #Initial values
 y[1]<-ye
