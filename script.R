@@ -15,6 +15,7 @@ gamma <- 2
 #Initial values defined
 #pi <- "inflation rate"
 # pi^T=0.02 inflation target (uppercase T is thus target)
+
 pi^T==0.02
 ye <- 1
 y[1] <- ye
@@ -38,11 +39,13 @@ y[t]<-A-gamma*r[t-1]
 
 #Phillips curve (shows supply-side of the economy)
 
-pi[t] <- pi[t-1]+alpha*(y[t]-ye)
+pi[t]<-pi[t-1]+alpha*(y[t]-ye)
 
 #Interest rate rule
 
-r[t] <- (A-ye/gamma)+(alpha*beta*(pi[t]-pi^T)/gamma*(1+(alpha^2)*beta))
+r[t]<-r[1]*(alpha*beta*(pi[t]-pi^T)/gamma*(1+(alpha^2)*beta))
+
+            
 
 #Plot 3 graphs; inflation rate; interest rate; output over the 20 periods 
 
@@ -54,9 +57,9 @@ assign (matrixname,(round(cbind(y,pi,r), digits=3)))
 
 #3 plots created for endogenous variables y, pi and r for each curve 
 
-plot(y, type="l", xlab="Period", ylab="IS Curve")
-plot(pi, type="l", xlab="Period", ylab="Phillips curve")
-plot(r, type="l", xlab="Period", ylab="Interest rate rule")
+plot(y, type="l", xlab="Time Period", ylab="IS Curve")
+plot(pi, type="l", xlab="Time Period", ylab="Phillips curve")
+plot(r, type="l", xlab="Time Period", ylab="Interest rate rule")
 
 
 
@@ -69,11 +72,12 @@ for (t in 2:20){
   y[t]<-A-gamma*r[t-1]
   pi[t] <- pi[t-1]+alpha*(y[t]-ye)
   r[t] <- (A-ye/gamma)+(alpha*beta*(pi[t]-pi^T)/gamma*(1+(alpha^2)*beta))
+ 
 }
 
 
 
-
+warnings()
 
 
 #below may be all unnecessary
