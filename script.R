@@ -9,21 +9,17 @@ alpha <- 1
 beta <- 1
 gamma <- 2
 
+#Vectors
+y<- vector(length=20)
+pi<- vector(length=20)
+r<- vector(length=20)
+
 #Initial values defined
 
-# pi^T=0.02 inflation target (uppercase T is thus target)
-T <- "target"
-pi <- "inflation rate"
+pi^T==0.02
 
-
-pi[T]<-0.02 #this works but unsure if the syntax is correct??
-
-pi^T=="inflation target"
-pi^T==0.02 #prints false which is a concern; needs to show in env
-
-e <- "equilibrium"
-y[e] <- 1 
-y[1] <- y[e]
+ye <- 1 
+y[1]<-ye
 pi[1] <- pi^T #may need to change this to pi[1] <- 0.02 in the long run
 r[1] <- A-ye/gamma
 
@@ -41,7 +37,7 @@ y[t]<-A-gamma*r[t-1]
 
 #Phillips curve (shows supply-side of the economy)
 
-pi[t]<-pi[t-1]+alpha*(y[t]-y[e])
+pi[t]<-pi[t-1]+alpha*(y[t]-ye)
 
 #Interest rate rule
 
@@ -64,12 +60,6 @@ plot(pi, type="l", xlab="Time Period", ylab="Phillips curve")
 plot(r, type="l", xlab="Time Period", ylab="Interest rate rule")
 
 
-#Vectors
-y<- vector(length=20)
-pi<- vector(length=20)
-r<- vector(length=20)
-
-
 #Permanent negative aggregate demand shock at t=5 
 #Results in A declining from 1.1 to 1.09
 #For loop implemented to display this 
@@ -80,11 +70,6 @@ for (t in 2:20){
   pi[t]<-pi[t-1]+alpha*(y[t]-ye)
   r[t]<-r[1]+alpha*beta*pi[t]-pi[T]/gamma*(1+alpha^2*beta)
   
-  
-  
-  
 }
-
-
 
 
