@@ -17,8 +17,7 @@ gamma <- 2
 # pi^T=0.02 inflation target (uppercase T is thus target)
 
 pi^T==0.02
-y <- x
-y[e] <- 1
+ye <- 1
 y[1] <- ye
 pi[1] <- pi^T #may need to change this to pi[1] <- 0.02 in the long run
 r[1] <- A-ye/gamma
@@ -47,13 +46,6 @@ pi[t]<-pi[t-1]+alpha*(y[t]-ye)
 r[t]<-r[1]*(alpha*beta*(pi[t]-pi^T)/gamma*(1+(alpha^2)*beta))
             
 #Plot 3 graphs; inflation rate; interest rate; output over the 20 periods 
-
-#Table created to include the 2 vectors for endogenous variables 
-#i dont think this isn't needed for AS2 - ask prof
-
-matrixname<-("table")
-assign (matrixname,(round(cbind(y,pi,r), digits=3)))
-
 #3 plots created for endogenous variables y, pi and r for each curve 
 
 plot(y, type="l", xlab="Time Period", ylab="IS Curve")
@@ -70,10 +62,12 @@ for (t in 2:20){
   if (t < 5) {A<-1.09} else {A<-1.1}
   y[t]<-A-(gamma*r[t-1])
   pi[t]<-pi[t-1]+alpha*(y[t]-ye)
-  r[t]<-r[1]*(alpha*beta*(pi[t]-pi^T)/gamma*(1+(alpha^2)*beta))
+  
+  
   
 }
 
 
 
-warnings()
+
+
