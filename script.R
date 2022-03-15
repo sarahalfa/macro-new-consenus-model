@@ -8,7 +8,7 @@ library(rmarkdown)
 #Data
 #Parameter values of A, alpha, beta and gamma 
 
-A <- 1.1
+A<-1.1
 alpha <- 1
 beta <- 1
 gamma <- 2
@@ -17,7 +17,7 @@ gamma <- 2
 #pi <- "inflation rate"
 # pi^T=0.02 inflation target (uppercase T is thus target)
 
-pi^{T}==0.02
+pi^T==0.02
 ye <- 1 
 y[1] <- ye
 pi[1] <- pi^{T} #may need to change this to pi[1] <- 0.02 in the long run
@@ -28,9 +28,9 @@ r[1] <- A-ye/gamma
 t <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
 
 #Vectors
-y<-vector(length=20)
-pi<-vector(length=20)
-r<-vector(length=20)
+y<- vector(length=20)
+pi<- vector(length=20)
+r<- vector(length=20)
 
 #3 curves
 
@@ -44,14 +44,14 @@ pi[t]<-pi[t-1]+alpha*(y[t]-ye)
 
 #Interest rate rule
 
-r[t]<-r[1]*(alpha*beta*(pi[t]-pi^{T})/gamma*(1+(alpha^2)*beta))
-            
+r[t]<- A-ye/gamma+alpha*beta*pi[t]-(0.02)/gamma*(1+(alpha^2)*beta)
+
 #Plot 3 graphs; inflation rate; interest rate; output over the 20 periods 
 
 #Table showing data
 
 matrixname<- paste("table")
-assign (matrixname, (round(cbind(y,pi,r), digits=3)))
+assign (matrixname,(round(cbind(y,pi,r), digits=3)))
         
 
 #3 plots created for endogenous variables y, pi and r for each curve 
@@ -61,16 +61,15 @@ plot(pi, type="l", xlab="Time Period", ylab="Phillips curve")
 plot(r, type="l", xlab="Time Period", ylab="Interest rate rule")
 
 
-
-#Negative aggregate demand shock
-#Change of t=5 graph
-#Implement a for loop to show that when if t=5, A declines to A=1.09
+#Permanent negative aggregate demand shock at t=5 
+#Results in A declining from 1.1 to 1.09
+#For loop implemented to display this 
 
 for (t in 2:20){
-  if (t < 5) {A <- 1.09} else {A <- 1.1}
+  if (t < 5) {A<-1.09} else {A<-1.1}
   y[t]<-A-(gamma*r[t-1])
   pi[t]<-pi[t-1]+alpha*(y[t]-ye)
-  r[t]<-r[1]*(alpha*beta*(pi[t]-pi^T)/gamma*(1+(alpha^2)*beta))
+  r[t]<- A-ye/gamma+alpha*beta*pi[t]-(0.02)/gamma*(1+(alpha^2)*beta)
   
   
   
@@ -78,5 +77,6 @@ for (t in 2:20){
 
 
 
+warnings()
 
 
