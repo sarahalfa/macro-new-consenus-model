@@ -27,12 +27,6 @@ r[1] <- A-ye/gamma
 t <- "time"
 t <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
 
-#Vectors
-#when printing initially, shows false; this is fine as first there is no values 
-y<- vector(length=20)
-pi<- vector(length=20)
-r<- vector(length=20)
-
 #3 curves
 
 #IS curve (shows the demand-side of the economy)
@@ -61,6 +55,13 @@ assign (matrixname,(round(cbind(y,pi,r), digits=3)))
 plot(y, type="l", xlab="Time Period", ylab="IS Curve")
 plot(pi, type="l", xlab="Time Period", ylab="Phillips curve")
 plot(r, type="l", xlab="Time Period", ylab="Interest rate rule")
+
+
+#Vectors
+#when printing initially, shows false; this is fine as first there is no values 
+y<- vector(length=20)
+pi<- vector(length=20)
+r<- vector(length=20)
 
 
 #Permanent negative aggregate demand shock at t=5 
