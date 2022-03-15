@@ -1,25 +1,26 @@
 
-
 #NEW CONSENSUS 3-EQUATION MODEL
 
-#Libraries (may delete if unnecessary)
+#Library 
 
 library(rmarkdown)
 
 #Data
 #Parameter values of A, alpha, beta and gamma 
+
 A <- 1.1
 alpha <- 1
 beta <- 1
 gamma <- 2
+
 #Initial values defined
 #pi <- "inflation rate"
 # pi^T=0.02 inflation target (uppercase T is thus target)
 
-pi^T==0.02
-ye <- 1
+pi^{T}==0.02
+ye <- 1 
 y[1] <- ye
-pi[1] <- pi^T #may need to change this to pi[1] <- 0.02 in the long run
+pi[1] <- pi^{T} #may need to change this to pi[1] <- 0.02 in the long run
 r[1] <- A-ye/gamma
 
 #Defined t to hold 20 time periods, from 1-20
@@ -43,9 +44,16 @@ pi[t]<-pi[t-1]+alpha*(y[t]-ye)
 
 #Interest rate rule
 
-r[t]<-r[1]*(alpha*beta*(pi[t]-pi^T)/gamma*(1+(alpha^2)*beta))
+r[t]<-r[1]*(alpha*beta*(pi[t]-pi^{T})/gamma*(1+(alpha^2)*beta))
             
 #Plot 3 graphs; inflation rate; interest rate; output over the 20 periods 
+
+#Table showing data
+
+matrixname<- paste("table")
+assign (matrixname, (round(cbind(y,pi,r), digits=3)))
+        
+
 #3 plots created for endogenous variables y, pi and r for each curve 
 
 plot(y, type="l", xlab="Time Period", ylab="IS Curve")
@@ -59,9 +67,10 @@ plot(r, type="l", xlab="Time Period", ylab="Interest rate rule")
 #Implement a for loop to show that when if t=5, A declines to A=1.09
 
 for (t in 2:20){
-  if (t < 5) {A<-1.09} else {A<-1.1}
+  if (t < 5) {A <- 1.09} else {A <- 1.1}
   y[t]<-A-(gamma*r[t-1])
   pi[t]<-pi[t-1]+alpha*(y[t]-ye)
+  r[t]<-r[1]*(alpha*beta*(pi[t]-pi^T)/gamma*(1+(alpha^2)*beta))
   
   
   
