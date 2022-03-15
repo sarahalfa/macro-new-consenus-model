@@ -1,10 +1,6 @@
 
 #NEW CONSENSUS 3-EQUATION MODEL
 
-#Library 
-
-library(rmarkdown)
-
 #Data
 #Parameter values of A, alpha, beta and gamma 
 
@@ -14,20 +10,25 @@ beta <- 1
 gamma <- 2
 
 #Initial values defined
-#pi <- "inflation rate"
+
 # pi^T=0.02 inflation target (uppercase T is thus target)
 
-pi^T==0.02
+pi <- "inflation rate"
+pi^T==0.02 #prints false which is a concern; needs to show in env
+e <- "equilibrium"
 ye <- 1 
 y[1] <- ye
-pi[1] <- pi^{T} #may need to change this to pi[1] <- 0.02 in the long run
+pi[1] <- pi^T #may need to change this to pi[1] <- 0.02 in the long run
+r <- "real interest rate"
 r[1] <- A-ye/gamma
 
-#Defined t to hold 20 time periods, from 1-20
+#Defined t to hold 20 time periods, from 1-20; this works fine 
 
+t <- "time"
 t <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20)
 
 #Vectors
+#when printing initially, shows false; this is fine as first there is no values 
 y<- vector(length=20)
 pi<- vector(length=20)
 r<- vector(length=20)
@@ -43,14 +44,15 @@ y[t]<-A-(gamma*r[t-1])
 pi[t]<-pi[t-1]+alpha*(y[t]-ye)
 
 #Interest rate rule
+#weirdly works 
 
-r[t]<- A-ye/gamma+alpha*beta*pi[t]-(0.02)/gamma*(1+(alpha^2)*beta)
+r[t]<- A-ye/gamma+alpha*beta*pi[t]-(pi^T)/gamma*(1+(alpha^2)*beta)
 
 #Plot 3 graphs; inflation rate; interest rate; output over the 20 periods 
 
-#Table showing data
+#Table showing data for all 3
 
-matrixname<- paste("table")
+matrixname <- paste("table")
 assign (matrixname,(round(cbind(y,pi,r), digits=3)))
         
 
@@ -64,19 +66,17 @@ plot(r, type="l", xlab="Time Period", ylab="Interest rate rule")
 #Permanent negative aggregate demand shock at t=5 
 #Results in A declining from 1.1 to 1.09
 #For loop implemented to display this 
-
+#Need to ensure that after t=5, the rest of the time periods reflect this permanent shock
 for (t in 2:20){
   if (t < 5) {A<-1.09} else {A<-1.1}
   y[t]<-A-(gamma*r[t-1])
   pi[t]<-pi[t-1]+alpha*(y[t]-ye)
-  r[t]<- A-ye/gamma+alpha*beta*pi[t]-(0.02)/gamma*(1+(alpha^2)*beta)
+  r[t]<- A-ye/gamma+alpha*beta*pi[t]-(pi^T)/gamma*(1+(alpha^2)*beta)
   
   
   
 }
 
 
-
-warnings()
 
 
