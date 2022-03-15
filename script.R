@@ -35,7 +35,7 @@ r<-vector(length=20)
 
 #IS curve (shows the demand-side of the economy)
 
-y[t]<-A-gamma*r[t-1]
+y[t]<-A-(gamma*r[t-1])
 
 #Phillips curve (shows supply-side of the economy)
 
@@ -44,9 +44,7 @@ pi[t]<-pi[t-1]+alpha*(y[t]-ye)
 #Interest rate rule
 
 r[t]<-r[1]*(alpha*beta*(pi[t]-pi^T)/gamma*(1+(alpha^2)*beta))
-
             
-
 #Plot 3 graphs; inflation rate; interest rate; output over the 20 periods 
 
 #Table created to include the 2 vectors for endogenous variables 
@@ -68,30 +66,13 @@ plot(r, type="l", xlab="Time Period", ylab="Interest rate rule")
 #Implement a for loop to show that when if t=5, A declines to A=1.09
 
 for (t in 2:20){
-  if (t <- 5) {A <- 1.09} else {A <- 1.1}
-  y[t]<-A-gamma*r[t-1]
-  pi[t] <- pi[t-1]+alpha*(y[t]-ye)
-  r[t] <- (A-ye/gamma)+(alpha*beta*(pi[t]-pi^T)/gamma*(1+(alpha^2)*beta))
- 
+  if (t < 5) {A<-1.09} else {A<-1.1}
+  y[t]<-A-(gamma*r[t-1])
+  pi[t]<-pi[t-1]+alpha*(y[t]-ye)
+  r[t]<-r[1]*(alpha*beta*(pi[t]-pi^T)/gamma*(1+(alpha^2)*beta))
+  
 }
 
 
 
 warnings()
-
-
-#below may be all unnecessary
-#Inflation Rate Graph
-
-#Table for the vectors of endogenous variables
-matrixname<-past("Inflation Rate Graph")
-assign (matrixname, (round(cbind(y,pi,r), digits=3)))
-
-#Plots 
-plot(y, type="l", xlab="y (output)", ylab="r (real interest rate)")
-plot(pi^t, type="l", xlab="y (output)", ylab="pi (inflation target)")
-
-#on the IR graph, there are 3 Phillips Curve's 
-pi^t==pi^t+a*(y^t-ye)
-
-
