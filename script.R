@@ -12,9 +12,11 @@ gamma <- 2
 #Initial values defined
 
 # pi^T=0.02 inflation target (uppercase T is thus target)
-
+T <- "target"
 pi <- "inflation rate"
+pi^T=="inflation target"
 pi^T==0.02 #prints false which is a concern; needs to show in env
+
 e <- "equilibrium"
 ye <- 1 
 y[1] <- ye
@@ -38,7 +40,6 @@ y[t]<-A-(gamma*r[t-1])
 pi[t]<-pi[t-1]+alpha*(y[t]-ye)
 
 #Interest rate rule
-#weirdly works 
 
 r[t]<- A-ye/gamma+alpha*beta*pi[t]-(pi^T)/gamma*(1+(alpha^2)*beta)
 
@@ -58,7 +59,6 @@ plot(r, type="l", xlab="Time Period", ylab="Interest rate rule")
 
 
 #Vectors
-#when printing initially, shows false; this is fine as first there is no values 
 y<- vector(length=20)
 pi<- vector(length=20)
 r<- vector(length=20)
