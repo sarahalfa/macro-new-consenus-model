@@ -31,10 +31,10 @@ r[1]<-A-ye/gamma
 
 #plot 3 graphs; inflation rate; interest rate; output over the 20 periods 
 #for loop to reflect the negative aggregate demand shock at t=5
-t<-20
+t<-1:20
 
 for(t in 2:20){
-  if (t <- 5){A<-1.09}
+  if (t <=5){A<-1.09}
   else {A<-1.1}
   y[t]<-A-(gamma*r[t-1])
   pi[t]<-pi[t-1]+alpha*(y[t]-ye)
