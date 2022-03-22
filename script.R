@@ -1,16 +1,20 @@
 #NEW CONSENSUS 3-EQUATION MODEL
+
 rm(list=ls(all=T))
+
 #data 
-t<-2:20
+
 #parameter values
 A<-1.1 
 alpha<-1
 beta<-1
 gamma<-2
+
 #vectors
 y<-vector(length=20)
 pi<-vector(length=20)
 r<-vector(length=20)
+
 #initial values
 ye<-1
 pipowerT<-0.02
@@ -19,21 +23,21 @@ y[1]<-1
 pi[1]<-0.02
 r[1]<-0.05
 
-#y[1]<-ye
-#pi[1]<-pipowerT
-#r[1]<-A-ye/gamma
-
 #3 curves
 #IS curve (shows the demand-side of the economy)
-#y[t]<-(A)-(gamma*r[t-1])
+#y[t]<-(A)-(gamma*r[t-1]) 
+
 #Phillips curve (shows supply-side of the economy)
 #pi[t]<-(pi[t-1])+(alpha*(y[t]-ye))
+#pi[t]<-pi[t-1]+alpha*(y[t]-1)
+
 #Interest rate rule
 #r[t]<-((A-ye)/(gamma))+(alpha*beta*(pi[t]))-(pipowerT)/gamma*(1+(alpha^2)*beta)
+#r[t]<-((A*1/2)-1/2)+(((pi[t]-pi[1]))/4)
+
 #plot 3 graphs; inflation rate; interest rate; output over the 20 periods 
 #for loop to reflect the negative aggregate demand shock at t=5
 
-#t<-seq(2, 20, 0.05)
 for(t in 2:20){
   if(t<5){A<-1.1}else{A<-1.09}
   y[t]<-A-gamma*r[t-1]
@@ -42,10 +46,9 @@ for(t in 2:20){
 }
   
   
-
 #table showing data for all 3
-#matrixname<-paste("Table Results")
-#assign (matrixname,(round(cbind(y,pi,r), digits=3)))
+matrixname<-paste("Table Results")
+assign (matrixname,(round(cbind(y,pi,r), digits=3)))
 
 #3 plots created for endogenous variables y, pi and r for each curve
 plot(y, type="l", xlab="Time Period", ylab="IS Curve")
